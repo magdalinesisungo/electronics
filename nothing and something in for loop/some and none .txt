@@ -1,0 +1,84 @@
+int LEDRED=9;
+int LEDGREEN=5;
+int BLINKRED;
+int BLINKGREEN;
+int REDON;
+int REDOFF;
+int GREENON;
+int GREENOFF;
+String message1="This is the REDLED Blink # ";
+String message2="This is the GREENLED Blink # ";
+
+
+void setup() {
+       Serial.begin(9600);
+       pinMode(LEDRED,OUTPUT);
+       pinMode(LEDGREEN,OUTPUT);
+       Serial.println("This is my First Program");
+       Serial.println(" ");
+
+       Serial.print("How many blinks for REDLED?");
+       while(Serial.available()==0){};
+       BLINKRED= Serial.parseInt();
+       Serial.println(" ");
+
+       
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  for(int j=1; j<=BLINKRED; j=j+1){
+    Serial.print(message1);
+    Serial.println(j);
+    digitalWrite (LEDRED,HIGH);
+    delay(REDON);
+    digitalWrite (LEDRED,LOW);
+    delay(REDOFF);
+    
+  }  
+  Serial.println(" "); 
+
+        Serial.print("How long should RED be on?");
+       while(Serial.available()==0){};
+       REDON= Serial.parseInt();
+       
+       Serial.println(" ");
+
+       Serial.print("How long should RED be off?");
+       while(Serial.available()==0){};
+       REDOFF= Serial.parseInt();
+       
+       Serial.println(" ");
+
+
+
+  
+  for(int j=1; j<=BLINKGREEN; j=j+1){ 
+    Serial.print(message2);
+    Serial.println(j);
+    digitalWrite (LEDGREEN,HIGH);
+    delay(GREENON);
+    digitalWrite (LEDGREEN,LOW);
+    delay(GREENOFF);
+  } 
+  Serial.println(" ");
+
+   Serial.print("How long should GREEN be on?");
+       while(Serial.available()==0){};
+       GREENON= Serial.parseInt();
+       
+       Serial.println(" ");
+
+        Serial.print("How long should GREEN be off?");
+       while(Serial.available()==0){};
+       GREENOFF= Serial.parseInt();
+       
+       Serial.println(" ");
+
+    
+
+            
+  // put your main code here, to run repeatedly:
+
+}
